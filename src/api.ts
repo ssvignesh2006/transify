@@ -5,9 +5,10 @@ import {
   saveTranslation,
   type TranslationRecord,
 } from './db';
+import PdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?worker';
 
 // Initialize PDF worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.mjs`;
+pdfjsLib.GlobalWorkerOptions.workerPort = new PdfWorker();
 
 const MYMEMORY_URL = 'https://api.mymemory.translated.net/get';
 const TIMEOUT_MS = 8000;
