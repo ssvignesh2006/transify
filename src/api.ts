@@ -5,7 +5,7 @@ import {
   saveTranslation,
   type TranslationRecord,
 } from './db';
-import PdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?worker';
+import PdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?worker&inline';
 
 // Initialize PDF worker
 pdfjsLib.GlobalWorkerOptions.workerPort = new PdfWorker();
