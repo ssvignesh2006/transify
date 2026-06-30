@@ -5,10 +5,9 @@ import {
   saveTranslation,
   type TranslationRecord,
 } from './db';
-import PdfWorker from 'pdfjs-dist/build/pdf.worker.mjs?worker&inline';
 
-// Initialize PDF worker
-pdfjsLib.GlobalWorkerOptions.workerPort = new PdfWorker();
+// Initialize PDF worker via CDN (avoids bundling issues on Vercel)
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
 
 const MYMEMORY_URL = 'https://api.mymemory.translated.net/get';
 const TIMEOUT_MS = 8000;
