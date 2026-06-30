@@ -6,8 +6,8 @@ import {
   type TranslationRecord,
 } from './db';
 
-// Initialize PDF worker via CDN (avoids bundling issues on Vercel)
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+// Initialize PDF worker from static asset in /public (CDN doesn't have v6.x)
+pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
 
 const MYMEMORY_URL = 'https://api.mymemory.translated.net/get';
 const TIMEOUT_MS = 8000;
